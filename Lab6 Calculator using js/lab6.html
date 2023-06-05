@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      tr button {
+        width: 100%;
+        height: 60px;
+        background-color: black;
+        color: white;
+        border: 5px dotted green;
+
+      }
+
+      tr input {
+        width: 98%;
+        height: 50px;
+        margin: auto;
+        font-size: large;
+        border-radius: 15px;
+        background-color: black;
+        color: white;
+        border: 5px dotted green;
+
+      }
+      span{
+        font-size: 8px;
+      }
+      h1 {
+        text-align: center;
+      }
+      table {
+        width: 40%;
+        border-radius: 15px;
+        border: 5px solid blue;
+      }
+      @media screen and (max-width: 1000px) {
+        table {
+          width: 60%;
+          color: white;
+        }
+    }
+      @media screen and (max-width: 600px) {
+        table {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    
+      <table align="center" border="2px">
+        <tr>
+          <td colspan="5">
+            <input id="input" disabled type="text" name="input"/>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="MS=''">MC</button></td>
+          <td><button onclick="inputhandler(this)" value = '1' >1</button></td>
+          <td><button onclick="inputhandler(this)" value = '2' >2</button></td>
+          <td><button onclick="inputhandler(this)" value = '3' >3</button></td>
+          <td><button onclick="operatorhandler(this)" value = "+" >+</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="mshandler()">MS</button></td>
+          <td><button onclick="inputhandler(this)" value = '4' >4</button></td>
+          <td><button onclick="inputhandler(this)" value = '5' >5</button></td>
+          <td><button onclick="inputhandler(this)" value = '6' >6</button></td>
+          <td><button onclick="operatorhandler(this)" value = "-" >-</button></td>
+
+        </tr>
+
+        <tr>
+          <td><button onclick="mrhandler()">MR</button></td>
+          <td><button onclick="inputhandler(this)" value = '7' >7</button></td>
+          <td><button onclick="inputhandler(this)" value = '8' >8</button></td>
+          <td><button onclick="inputhandler(this)" value = '9' >9</button></td>
+          <td><button onclick="operatorhandler(this)" value = "*" >X</button></td>
+        </tr>
+
+        <tr>
+          <td><button onclick="mplushandler()">M+</button></td>
+          <td><button onclick="plusminushandler()">+-</button></td>
+          <td><button onclick="inputhandler(this)" value = '0' >0</button></td>
+          <td><button onclick="equalhandler()">=</button></td>
+          <td><button onclick="operatorhandler(this)" value = "/" >/</button></td>
+        </tr>
+        <tr>
+          <td><button onclick="inversehandler()">1/X</button></td>
+          <td>
+            <button onclick="dothandler()" value=".">&#x2022 </button>
+          </td>
+          <td><button onclick="operatorhandler(this)" value = '**(2)' >x2</button></td>
+          <td><button onclick="operatorhandler(this)" value = '**(1/2)' >\/```</button></td>
+          <td><button onclick="clearhandler()">C</button></td>
+        </tr>
+      </table>     
+    <script>
+      var MS;
+      function clearhandler(){
+        MS = '';
+        document.getElementById('input').value = '';
+      }
+      function mplushandler(){
+        let inputtext = document.getElementById('input').value;
+        let input = eval(inputtext);
+        let ms = eval(MS);
+        MS = input + ms;
+        document.getElementById('input').value = '';
+      }
+      function mrhandler(){
+        document.getElementById('input').value = document.getElementById('input').value + MS;
+      }
+      function mshandler(){
+        let inputtext = document.getElementById('input').value;
+        let i = inputtext.length;
+        while(i>=0){
+          let char = inputtext.slice(i,i+1);          
+          if(char === '+' ||char === '-' ||char === '*' ||char === '/' ){
+            return;
+          }
+          i--;
+        }
+        MS = inputtext;
+        document.getElementById('input').value ='';       
+      }
+      function plusminushandler(){
+        let inputtext = document.getElementById('input').value;
+        let initialcharts = document.getElementById('input').value.slice(0,2);
+        let newstring = document.getElementById('input').value.slice(2);
+        if(initialcharts === '-(' ){
+          document.getElementById('input').value = '+(' + newstring;
+        }else if(initialcharts === '+('){
+          document.getElementById('input').value = '-(' + newstring;
+        }else{
+          document.getElementById('input').value = '-(' + inputtext + ')';
+        }
+      }
+      function inversehandler(){
+        let newinput = '1/('+ document.getElementById('input').value + ')';
+        document.getElementById('input').value = eval(newinput);
+      }
+      function equalhandler(){
+        let result = eval( document.getElementById('input').value);
+        document.getElementById('input').value =  result;
+      }
+      function dothandler(){
+        let inputtext = document.getElementById('input').value;
+        let lastchar = inputtext.slice(-1);
+        if(lastchar === '.'){
+          document.getElementById('input').value = inputtext + '0';
+        }else{
+          let i = inputtext.length;
+          while(i>=0){
+            let char = inputtext.slice(i,i+1);
+            if(char === "."){
+              return;
+            }
+            else if(char === '+' ||char === '-' ||char === '*' ||char === '/' ){
+              if( lastchar === '+' ||lastchar === '-' ||lastchar === '*' ||lastchar === '/' ){
+                document.getElementById('input').value = inputtext + '0.0';
+              }else{
+                document.getElementById('input').value = inputtext + '.0';
+
+              }
+
+              return;
+            }
+            else if(char === ')' ){
+              return;
+            }
+            else{
+              i--;
+            }
+          }
+          document.getElementById('input').value = inputtext + '.0';
+        }
+      }
+      function operatorhandler(operator){
+        let inputtext = document.getElementById('input').value;
+        let lastchar = inputtext.slice(-1); 
+        if(lastchar === '+' ||lastchar === '-' ||lastchar === '*' ||lastchar === '/' ){
+          if( operator.value === '+' || operator.value === '-' ||operator.value === '*' || operator.value === '/' ){
+            text = inputtext.slice(0, -1); 
+          }
+          else{
+            text = inputtext;
+          }
+        }
+        else if(lastchar === '.'){
+            text = inputtext + '0';        }
+        else{
+          text = inputtext;
+        }
+        document.getElementById('input').value = text + operator.value;
+
+      }
+      function inputhandler(input) {
+        let inputtext = document.getElementById('input').value;
+        document.getElementById('input').value = inputtext + input.value;
+    }
+      
+    </script>
+  </body>
+</html>

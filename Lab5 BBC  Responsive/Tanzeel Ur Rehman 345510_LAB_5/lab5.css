@@ -1,0 +1,341 @@
+    *{
+         box-sizing: border-box;
+    }
+
+    body {
+        width: 100vw;
+        margin: 0%;
+        padding: 0%;
+        overflow-x: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    img {
+        width: 100%;
+        object-fit: fill;
+    }
+/* navbar */
+    .navbar {
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 50px;
+    }
+/* dots */
+    .navbar i {
+        color: white;
+        font-size: 3vw;
+        margin:0 30px;
+        display: none;
+    }
+    .navbar .dots{
+        display: none;
+    }
+    .navbar h4{
+        font-size: .7em;
+    }
+    .navbar p{
+        font-size: .6em;
+    }
+    .navbar div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+    .navbar .logo {
+        display: flex;
+        width: 20%;
+        justify-self: right;
+        margin-left:2%;
+    }
+    .navbar .logo .logoimg{
+        width: 50%;
+        margin: 0;
+    }
+    .navbar .logo .signin {
+        display: flex;
+        }
+    .navbar .logo .signin svg{
+        width: 3vw;
+    }  
+    .navbar .heading {
+        display: flex;
+        justify-content: space-between;
+        width: 56%;
+    }
+    .navbar .heading h5{
+        font-size: 1vw;
+    }
+    .navbar span {
+        width: 18%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: #3a3c3e;
+        margin: 8px 2%;
+    }
+    .navbar span svg{
+        fill: white;
+        width: 10%;
+    }
+    .navbar div h4:hover,
+    .navbar div i:hover,
+    .navbar span:hover,
+    .navbar .signin:hover,
+    .navbar img:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+    /*Navbar END  */
+    /* Welcome and Date */
+    .welcome {
+        max-width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    .welcome h2{
+        font-size: 2vw;
+    }
+
+    .welcome .date {
+        color: #9b8c8c;
+    }
+    /* Welcome Date END  */
+
+
+    /* Five Grid */
+    .fivegrid h3{
+        font-size: 0.8em;
+    }
+    .fivegrid h4{
+        font-size: 0.7em;
+    }
+    .fivegrid p{
+        font-size: .6em;
+    }
+    .fivegrid {
+        width: 90%;
+        margin: auto;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .fivegrid .largeimg {
+        width: 49%;
+        margin: 0.5%;
+    }
+ .fivegrid .largeimg img{
+    position: relative;
+ }
+    .fivegrid .largeimg >div {
+        position: absolute;
+        margin-left: 15px;
+        margin-top: -10%;
+    }
+    .fivegrid .fourgrid{
+        width: 49%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 0.5%;
+    }
+
+    .fourgrid>div {
+        width: 48%;
+        margin: 0 0.5%;
+   }
+    .fourgrid>div img {
+        position: relative;
+    }
+    .fourgrid>div div{
+        position: absolute;
+        margin-top: -6%;
+        margin-left: 5px;
+    }
+    .fourgrid>div div p{
+        position:relative;
+        top: -10px;
+        width: 80%;   
+    }
+    .fourgrid>div div h4 {
+        width: 80%;
+    }
+
+
+
+    .section-heading {
+        margin: 30px 6%;
+        display: flex;
+        align-items: center;
+        font-size: 30px;
+    }
+
+
+    .section-heading span {
+        font-weight: bolder;
+        font-size: 40px;
+        position: relative;
+        margin-top: -4px;
+        margin-right: 5px;
+    }
+
+    .news {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: auto;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .news>div {
+        width: 32%;
+        margin: 0 10px;
+        scroll-snap-align: start;
+        min-width: 275px;
+    }
+
+    .asianews {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: auto;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        flex-wrap: nowrap;
+
+    }
+
+    .asianews>div {
+        width: 24%;
+        scroll-snap-align: start;
+        min-width: 270px;
+        margin: 0 10px;
+    }
+
+
+
+    /* Footer */
+    .footbck {
+        width: 100%;
+        background-color: #4C4C4C;
+    }
+
+    .footer {
+        width: 75%;
+        display: flex;
+        margin: auto;
+        margin-top: 20px;
+        flex-direction: column;
+    }
+    .footer h2{
+        font-size: 2vw;
+    }
+    .footer p{
+        line-height: 20px;
+        font-size: 0.8vw;
+    }
+    .footer {
+        margin-top: 50px;
+        color: white;
+        line-height: 5px;
+        font-size: small;
+        margin-bottom: 10px;
+    }
+
+    .footer>div {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 0.5px solid #707070;
+        padding-bottom: 20px;
+        padding-right: 10%;
+    }
+
+    .footer>div div:not(:first-of-type) {
+        border-left: 0.5px solid #707070;
+        padding-left: 3%;
+    }
+
+    .footer hr {
+        background-color: whitesmoke;
+        height: 10px;
+    }
+    .footer div div h5 {
+        font-size: 1vw;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .navbar{
+            height: 46px;
+        }
+        .navbar span {
+            display: none;
+        }
+        .navbar .logo {
+            width: 25%;
+        }
+        .navbar .logo .signin svg {
+            width: 4vw;
+        }
+        .fivegrid{
+            flex-direction: column;
+        }
+        .fivegrid .largeimg{
+            width: 100%;
+        }
+        .fivegrid .fourgrid{
+            width: 100%;
+            margin-top: 3%;
+        }
+        .fivegrid .largeimg div {
+            margin-top: -18%;
+        }
+        .fourgrid>div div {
+            margin-top: -12%;
+        }                
+    }
+    @media only screen and (max-width: 600px) {
+        .navbar {
+                height: 36px;
+                justify-content: space-between;
+            }
+        .navbar .logo {
+            width: 40%;
+        }
+        .navbar .logo .signin svg {
+            width: 5vw;
+        }
+        .footer p {
+            line-height: 8px;
+        }
+        .navbar .heading {
+            display: none;
+        }
+        .navbar i {
+            display: block;
+        }
+        .fivegrid{
+            width: 98%;
+        }
+        .fivegrid .largeimg div {
+            margin-top: -28%;
+        }
+        .fourgrid>div div {
+            margin-top: -18%;
+        }
+    }
+    @media only screen and (max-width: 375px) {
+        .fivegrid .largeimg div {
+                margin-top: -38%;
+            }
+        
+            .fourgrid>div div {
+                margin-top: -24%;
+            }
+    }

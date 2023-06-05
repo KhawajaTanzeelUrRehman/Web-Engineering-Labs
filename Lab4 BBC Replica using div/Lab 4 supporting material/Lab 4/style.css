@@ -1,0 +1,21 @@
+.clear{
+	clear:both;
+}
+
+h1 b{
+    color: red;
+}
+
+.container {
+    height: 7%
+}
+
+.mainheading {
+    height: auto;
+    float:left;
+}
+
+#para1 {
+	color:blue;
+		
+}
